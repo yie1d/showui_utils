@@ -24,8 +24,10 @@ source /etc/network_turbo
 sh quickly_start.sh --database <database_dir> --weight <weight_dir>>
 ```
 
+
 ## 3 清理数据集
 ### 3.1 去除showui-web中的绝对路径
 ```shell
 python 
 ```
+
