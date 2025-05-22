@@ -30,7 +30,9 @@ def is_english_simple(text):
 def read_parquet_to_images(parquet_path: Path, images_path):
     df = pd.read_parquet(parquet_path, engine='pyarrow')
 
-    for file_name, row in df.iterrows():
+    for file_name, row in tqdm(df.iterrows(), total=df.shape[0], desc=f"parse images"):
+        if (images_path / f'{file_name}.png').exists():
+            continue
         base64_data = row['base64']
         # 解码Base64数据
         image_data = base64.b64decode(base64_data)
@@ -54,6 +56,7 @@ def data_transform(
     images_path: Path,
     metadata_path: Path
 ):
+    print(f'{state}: ')
     read_parquet_to_images(
         metadata_path.parent / f'{state}_{split}_images.parquet', images_path
     )
@@ -65,7 +68,7 @@ def data_transform(
     idx = 0
 
     task_dict = {}
-    for data in tqdm(guiact_data):
+    for data in tqdm(guiact_data, desc=f'transform {state}'):
         task = data['question']
         img_uid = data['image_id']
 
@@ -76,6 +79,8 @@ def data_transform(
                 task_dict[task_id] = []
             task_history = task_dict[task_id]
             step_history = task_history
+        else:
+            step_history = []
 
         if not is_english_simple(task):
             continue
