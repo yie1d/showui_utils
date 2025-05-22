@@ -14,7 +14,7 @@ sys.path.append('/root/autodl-tmp/ShowUI')
 from showui_utils.data_preprocess.config import get_path_from_name
 from showui_utils.tools import read_data, write_data
 
-DATABASE_NAME = 'GUIAct'
+DATABASE_NAME = 'GUI_Course/GUIAct'
 
 
 # is instruction English

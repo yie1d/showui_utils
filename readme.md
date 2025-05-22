@@ -25,9 +25,10 @@ sh quickly_start.sh --database <database_dir> --weight <weight_dir>>
 ```
 
 
-## 3 清理数据集
-### 3.1 去除showui-web中的绝对路径
+## 3 清理、转换原始数据集
+**运行前需要修改data_preprocess中的对应路径**
+运行所有hf_开头的脚本对数据进行预处理
 ```shell
-python 
+python showui_utils/data_preprocess/hf_*...
 ```
 

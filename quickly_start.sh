@@ -52,7 +52,7 @@ echo "./hfd.sh KevinQHLin/ScreenSpot --dataset --local-dir ${DATABASE_DIR}/Scree
 echo "------------>start GUIAct"
 echo "./hfd.sh yiye2023/GUIAct --dataset --local-dir ${DATABASE_DIR}/GUIAct"
 
-./hfd.sh KevinQHLin/ScreenSpot --dataset --local-dir ${DATABASE_DIR}/ScreenSpot --tool aria2c -x 10
+./hfd.sh yiye2023/GUIAct --dataset --local-dir ${DATABASE_DIR}/GUI_Course/GUIAct --tool aria2c -x 10
 
 # 下载权重
 echo "******************02 download weight******************"
